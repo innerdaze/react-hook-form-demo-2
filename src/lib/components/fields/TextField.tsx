@@ -17,7 +17,7 @@ import useFieldValidationSchema from "../../hooks/useFieldValidationSchema";
 import type { FieldBaseProps } from "../../../types/types";
 import type { AnyObjectSchema } from "yup";
 
-export interface TextFieldProps<T extends FieldValues>
+export interface TextFieldProps<T extends FieldValues = FieldValues>
   extends Omit<
       MuiOutlinedTextFieldProps,
       "onChange" | "onBlur" | "inputRef" | "variant"
@@ -27,7 +27,7 @@ export interface TextFieldProps<T extends FieldValues>
   label: string;
 }
 
-function TextField<T extends FieldValues, S extends AnyObjectSchema>({
+function TextField<T extends FieldValues = FieldValues, S extends AnyObjectSchema = AnyObjectSchema>({
   name,
   shouldUnregister = true,
   ...props
@@ -64,4 +64,4 @@ function TextField<T extends FieldValues, S extends AnyObjectSchema>({
   );
 }
 
-export default React.memo(TextField);
+export default React.memo(TextField) as typeof TextField;

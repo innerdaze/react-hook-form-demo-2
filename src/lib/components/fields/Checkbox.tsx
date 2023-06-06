@@ -22,19 +22,19 @@ import { FieldBaseProps } from "../../../types/types";
 import { get } from "lodash";
 import type { AnyObjectSchema } from "yup";
 
-export interface CheckboxProps<T extends FieldValues>
+export interface CheckboxProps<T extends FieldValues = FieldValues>
   extends Omit<
       MuiCheckboxProps,
       "value" | "onChange" | "onBlur" | "inputRef" | "name"
     >,
     Pick<FormControlLabelProps, "label">,
-    FieldBaseProps {
+    FieldBaseProps  {
   name: Path<T>;
   helperText?: string | React.ReactNode;
   isGrouped?: boolean;
 }
 
-function Checkbox<T extends FieldValues, S extends AnyObjectSchema>({
+function Checkbox<T extends FieldValues = FieldValues, S extends AnyObjectSchema = AnyObjectSchema>({
   name,
   label,
   helperText,
@@ -112,4 +112,4 @@ function Checkbox<T extends FieldValues, S extends AnyObjectSchema>({
   );
 }
 
-export default React.memo(Checkbox);
+export default React.memo(Checkbox) as typeof Checkbox;

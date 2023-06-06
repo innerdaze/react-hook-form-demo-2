@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useFormContext, useFieldArray } from "react-hook-form";
 import { Button } from "@mui/material";
 import FieldSet from "../../../lib/components/FieldSet";
-import type { Address, PersonalInfoFieldValues } from "../personalInfoSchema";
+import type { Address, PersonalInfoFieldValues } from "../personalInfoValidationSchema";
 import Field from "../../../lib/components/Field";
 
 export interface AddressFieldArrayProps {
@@ -26,10 +26,10 @@ const AddressFieldArray = ({ name }: AddressFieldArrayProps) => {
       {fields.map((field, index) => (
         <React.Fragment key={field.id}>
           <FieldSet highlight>
-            <Field name={`${name}.${index}.address1`} label="Address 1" />
-            <Field name={`${name}.${index}.address2`} label="Address 2" />
-            <Field name={`${name}.${index}.address3`} label="Address 3" />
-            <Field name={`${name}.${index}.postcode`} label="Postcode" />
+            <Field type='text' name={`${name}.${index}.address1`} label="Address 1" />
+            <Field type='text' name={`${name}.${index}.address2`} label="Address 2" />
+            <Field type='text' name={`${name}.${index}.address3`} label="Address 3" />
+            <Field type='text' name={`${name}.${index}.postcode`} label="Postcode" />
           </FieldSet>
 
           {index !== 0 && (

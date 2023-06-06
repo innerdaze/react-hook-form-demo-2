@@ -3,18 +3,19 @@ import TextField, { TextFieldProps } from "./TextField";
 import { MenuItem } from "@mui/material";
 import type { FieldValues } from "react-hook-form";
 import type { AnyObjectSchema } from "yup";
+import { FieldBaseProps } from "../../../types/types";
 
 export interface Option {
   label: string;
   value: any;
 }
 
-export interface SelectFieldProps<T extends FieldValues>
+export interface SelectFieldProps<T extends FieldValues = FieldValues>
   extends Omit<TextFieldProps<T>, "select"> {
   options: Option[];
 }
 
-function SelectField<T extends FieldValues, S extends AnyObjectSchema>({
+function SelectField<T extends FieldValues = FieldValues, S extends AnyObjectSchema = AnyObjectSchema>({
   options,
   ...props
 }: SelectFieldProps<T>) {
@@ -30,4 +31,4 @@ function SelectField<T extends FieldValues, S extends AnyObjectSchema>({
   );
 }
 
-export default React.memo(SelectField);
+export default React.memo(SelectField) as typeof SelectField;

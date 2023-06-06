@@ -77,9 +77,9 @@ const PersonalInfoForm = () => {
         label="Title"
       />
 
-      <Field name="firstName" label="First name" />
+      <Field type='text' name="firstName" label="First name" />
 
-      <Field name="lastName" label="Last name" />
+      <Field type='text' name="lastName" label="Last name" />
 
       <AddressFieldArray name="addresses" />
 

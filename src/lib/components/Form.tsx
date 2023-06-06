@@ -20,7 +20,6 @@ export interface FormProps<
   TVisibilitySchema extends AnyObjectSchema,
   TFieldValues extends FieldValues = InferType<TValidationSchema>
 > extends Omit<UseFormProps<TFieldValues>, "resolver" | "defaultValues">,
-    // Required<Pick<UseFormProps<TFieldValues>, "defaultValues">>,
     Pick<BoxProps<"form">, "children"> {
   errorMode?: "first" | "all";
   validationSchema: TValidationSchema;
