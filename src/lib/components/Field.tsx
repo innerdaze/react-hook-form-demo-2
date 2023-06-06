@@ -6,28 +6,34 @@ import useFieldValidationSchema from "../hooks/useFieldValidationSchema";
 import type { FieldBaseProps, FieldTypes } from "../../types/types";
 import type { FieldPropsMap } from "./fields/componentMap";
 import useFormApi from "../hooks/useFormApi";
+import type { AnyObjectSchema } from "yup";
+import type { FieldValues, Path } from "react-hook-form";
 
 export type FieldProps<
   T extends FieldTypes = "text",
-  FP extends object = FieldPropsMap[T]
-> = FieldBaseProps & {
-  name: string;
+  FP extends object = FieldPropsMap[T],
+  TFormSchema extends AnyObjectSchema = AnyObjectSchema,
+  TFieldValues extends FieldValues = FieldValues
+> = FieldBaseProps & FP & {
+  name: Path<T>;
   label: string;
   type?: T;
-} & FP;
+};
 
 function Field<
   T extends FieldTypes = "text",
-  FP extends object = FieldPropsMap[T]
->({ name, label, type = "text" as T, ...fieldProps }: FieldProps<T, FP>) {
+  FP extends object = FieldPropsMap[T],
+  TValidationSchema extends AnyObjectSchema = AnyObjectSchema,
+  TFieldValues extends FieldValues = FieldValues
+>({ name, label, type = "text" as T, ...fieldProps }: FieldProps<T, FP, TValidationSchema, TFieldValues>) {
   const { componentMap } = useFormApi();
-  const innerSchema = useFieldValidationSchema(name);
+  const innerSchema = useFieldValidationSchema<TFieldValues, TValidationSchema>(name);
 
   if (!innerSchema) {
     console.warn(`No validation schema defined for ${name}`);
   }
 
-  const innerVisibilitySchema = useFieldVisibilitySchema(name);
+  const innerVisibilitySchema = useFieldVisibilitySchema<TFieldValues, TValidationSchema>(name);
 
   const Cmp = componentMap.get(type);
 

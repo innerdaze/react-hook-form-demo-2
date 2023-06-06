@@ -6,12 +6,12 @@ import useValidationSchema from "./useValidationSchema";
 
 export default function useFieldValidationSchema<
   T extends FieldValues,
-  S extends AnyObjectSchema
+  S extends AnyObjectSchema = AnyObjectSchema
 >(name: Path<T>) {
-  const schema = useValidationSchema() as S;
+  const schema = useValidationSchema<S>();
 
   const fieldSchema = useMemo(
-    () => schema && (safeReach<S>(schema, name) as AnySchema),
+    () => schema && safeReach<S>(schema, name) as AnySchema,
     [name, schema]
   );
 

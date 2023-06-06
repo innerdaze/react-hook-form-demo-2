@@ -7,6 +7,6 @@ export const ValidationSchemaContext = createContext<
 
 export const ValidationSchemaProvider = ValidationSchemaContext.Provider;
 
-const useValidationSchema = () => React.useContext(ValidationSchemaContext);
+const useValidationSchema = <S extends yup.AnyObjectSchema>() => React.useContext(ValidationSchemaContext) as S;
 
 export default useValidationSchema;

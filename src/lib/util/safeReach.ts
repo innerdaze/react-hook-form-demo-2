@@ -9,7 +9,7 @@ export default function safeReach<T extends AnyObjectSchema>(
     | undefined = undefined;
 
   try {
-    innerSchema = reach(schema, name);
+    innerSchema = reach({}, name);
   } catch (e: unknown) {}
 
   return innerSchema;
