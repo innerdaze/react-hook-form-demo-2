@@ -3,7 +3,6 @@ import TextField, { TextFieldProps } from "./TextField";
 import { MenuItem } from "@mui/material";
 import type { FieldValues } from "react-hook-form";
 import type { AnyObjectSchema } from "yup";
-import { FieldBaseProps } from "../../../types/types";
 
 export interface Option {
   label: string;
@@ -15,10 +14,10 @@ export interface SelectFieldProps<T extends FieldValues = FieldValues>
   options: Option[];
 }
 
-function SelectField<T extends FieldValues = FieldValues, S extends AnyObjectSchema = AnyObjectSchema>({
-  options,
-  ...props
-}: SelectFieldProps<T>) {
+function SelectField<
+  T extends FieldValues = FieldValues,
+  S extends AnyObjectSchema = AnyObjectSchema
+>({ options, ...props }: SelectFieldProps<T>) {
   return (
     <TextField<T, S> {...props} select>
       <MenuItem disabled>Please Select</MenuItem>

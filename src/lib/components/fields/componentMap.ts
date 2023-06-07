@@ -1,5 +1,4 @@
 import React from "react";
-import type { FieldBaseProps, FieldTypes } from "../../../types/types";
 import type { CheckboxProps } from "./Checkbox";
 import Checkbox from "./Checkbox";
 import type { SelectFieldProps } from "./SelectField";
