@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { RenderErrorMessage } from "../ErrorMessageDisplay";
 import useFieldValidationSchema from "../../hooks/useFieldValidationSchema";
-import type { FieldBaseProps } from "../../../types/types";
+import type { FieldBaseProps } from "../../types/types";
 import type { AnyObjectSchema } from "yup";
 
 export interface TextFieldProps<T extends FieldValues = FieldValues>
@@ -27,11 +27,10 @@ export interface TextFieldProps<T extends FieldValues = FieldValues>
   label: string;
 }
 
-function TextField<T extends FieldValues = FieldValues, S extends AnyObjectSchema = AnyObjectSchema>({
-  name,
-  shouldUnregister = true,
-  ...props
-}: TextFieldProps<T>) {
+function TextField<
+  T extends FieldValues = FieldValues,
+  S extends AnyObjectSchema = AnyObjectSchema
+>({ name, shouldUnregister = true, ...props }: TextFieldProps<T>) {
   const { control } = useFormContext<T>();
   const { field } = useController<T>({ name, control, shouldUnregister });
   const fieldState = useFormState<T>({

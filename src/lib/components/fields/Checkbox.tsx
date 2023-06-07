@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import ErrorMessageDisplay from "../ErrorMessageDisplay";
 import useFieldValidationSchema from "../../hooks/useFieldValidationSchema";
-import { FieldBaseProps } from "../../../types/types";
+import { FieldBaseProps } from "../../types/types";
 import { get } from "lodash";
 import type { AnyObjectSchema } from "yup";
 
@@ -28,13 +28,16 @@ export interface CheckboxProps<T extends FieldValues = FieldValues>
       "value" | "onChange" | "onBlur" | "inputRef" | "name"
     >,
     Pick<FormControlLabelProps, "label">,
-    FieldBaseProps  {
+    FieldBaseProps {
   name: Path<T>;
   helperText?: string | React.ReactNode;
   isGrouped?: boolean;
 }
 
-function Checkbox<T extends FieldValues = FieldValues, S extends AnyObjectSchema = AnyObjectSchema>({
+function Checkbox<
+  T extends FieldValues = FieldValues,
+  S extends AnyObjectSchema = AnyObjectSchema
+>({
   name,
   label,
   helperText,

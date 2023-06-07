@@ -1,15 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import RevalidateOnDependencyChange from "./util/RevalidateOnDependencyChange";
 import CheckVisibilityOnDependencyChange from "./util/CheckVisibilityOnDependencyChange";
 import useFieldVisibilitySchema from "../hooks/useFieldVisibilitySchema";
 import useFieldValidationSchema from "../hooks/useFieldValidationSchema";
-import type { FieldBaseProps, FieldTypes } from "../../types/types";
-import type {
-  ComponentProps,
-  Components,
-  FieldPropsMap,
-} from "./fields/componentMap";
 import useFormApi from "../hooks/useFormApi";
+import type { FieldBaseProps, FieldTypes } from "../types/types";
+import type { ComponentProps } from "./fields/componentMap";
 import type { AnyObjectSchema } from "yup";
 import type { FieldValues, Path } from "react-hook-form";
 
