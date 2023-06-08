@@ -1,4 +1,4 @@
-import { Box, BoxProps, Typography } from "@mui/material";
+import { Box, BoxProps } from "@mui/material";
 import React from "react";
 
 interface TabPanelProps extends BoxProps {
