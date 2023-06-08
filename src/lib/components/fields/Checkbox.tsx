@@ -48,13 +48,13 @@ function Checkbox<
   const { control } = useFormContext<T>();
   const { field } = useController<T>({ name: name, control, shouldUnregister });
   const theme = useTheme();
-  const fieldState = useFormState<T>({ control, name: name });
+  const { errors } = useFormState<T>({ control, name });
 
   const fieldSchema = useFieldValidationSchema<T, S>(name);
 
   const required = !fieldSchema?.spec?.optional ?? false;
 
-  const errors = get(fieldState.errors, name);
+  const fieldErrors = get(errors, name);
 
   const errorId = `${name}-error`;
   const descriptionId = `${name}-helper-text`;
@@ -62,10 +62,12 @@ function Checkbox<
   const formControlLabelComponentsProps = useMemo(
     () => ({
       typography: {
-        color: errors ? theme.palette.error.main : theme.palette.text.primary,
+        color: fieldErrors
+          ? theme.palette.error.main
+          : theme.palette.text.primary,
       },
     }),
-    [theme, errors]
+    [theme, fieldErrors]
   );
 
   const renderError = useCallback(

@@ -4,12 +4,14 @@ import * as yup from "yup";
 import {
   createTheme,
   CssBaseline,
+  Divider,
   GlobalStyles,
   ThemeProvider,
   Typography,
 } from "@mui/material";
 
 import PersonalInfoForm from "./forms/PersonalInfo/PersonalInfoForm";
+import PersonalInfoSchemaForm from "./forms/PersonalInfo/PersonalInfoSchemaForm";
 
 yup.setLocale({
   mixed: { required: "This field is required" },
@@ -57,6 +59,11 @@ export default function App() {
         React Hook Form Demo
       </Typography>
       <PersonalInfoForm />
+      <Divider sx={{ my: 8 }} />
+      <Typography variant="h2" mb={8} align="center">
+        React Hook Schema Form Demo
+      </Typography>
+      <PersonalInfoSchemaForm />
     </ThemeProvider>
   );
 }
