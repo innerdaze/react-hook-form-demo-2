@@ -57,7 +57,7 @@ const PersonalInfoForm = () => {
           flexDirection: "column",
           alignItems: "center",
           maxWidth: "400px",
-          margin: "0 auto",
+          width: "100%",
           gap: "1rem",
           "& .MuiFormControl-root": {
             maxWidth: "400px",
@@ -77,9 +77,9 @@ const PersonalInfoForm = () => {
         label="Title"
       />
 
-      <Field type='text' name="firstName" label="First name" />
+      <Field type="text" name="firstName" label="First name" />
 
-      <Field type='text' name="lastName" label="Last name" />
+      <Field type="text" name="lastName" label="Last name" />
 
       <AddressFieldArray name="addresses" />
 

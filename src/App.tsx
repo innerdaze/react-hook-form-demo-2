@@ -1,17 +1,13 @@
 import React from "react";
-import "./App.css";
 import * as yup from "yup";
 import {
   createTheme,
   CssBaseline,
-  Divider,
   GlobalStyles,
   ThemeProvider,
-  Typography,
 } from "@mui/material";
 
-import PersonalInfoForm from "./forms/PersonalInfo/PersonalInfoForm";
-import PersonalInfoSchemaForm from "./forms/PersonalInfo/PersonalInfoSchemaForm";
+import Demo from "./demo/Demo";
 
 yup.setLocale({
   mixed: { required: "This field is required" },
@@ -48,22 +44,13 @@ export default function App() {
             minHeight: "100vh",
           },
           "#root": {
-            maxWidth: "1280px",
-            margin: "0 auto",
+            width: "100%",
             padding: "2rem",
           },
           ul: { padding: 0, margin: 0 },
         }}
       />
-      <Typography variant="h2" mb={8} align="center">
-        React Hook Form Demo
-      </Typography>
-      <PersonalInfoForm />
-      <Divider sx={{ my: 8 }} />
-      <Typography variant="h2" mb={8} align="center">
-        React Hook Schema Form Demo
-      </Typography>
-      <PersonalInfoSchemaForm />
+      <Demo />
     </ThemeProvider>
   );
 }
