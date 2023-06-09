@@ -24,7 +24,9 @@ const FieldSet = styled(FieldSetBase, {
     display: "flex",
     flexDirection: "column",
     gap: "1rem",
-    width: fieldsetPadding ? "calc(100% + 2rem)" : "auto",
+    // width: "100%",
+    // margin: fieldsetPadding ? `0 -${fieldsetPadding}` : 0,
+    width: fieldsetPadding ? "calc(100% + 2rem)" : "100%",
   };
 });
 

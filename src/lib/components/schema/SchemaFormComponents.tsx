@@ -19,4 +19,4 @@ const SchemaFormComponents = <TFieldValues extends FieldValues = FieldValues>({
   );
 };
 
-export default React.memo(SchemaFormComponents);
+export default React.memo(SchemaFormComponents) as typeof SchemaFormComponents;

@@ -3,13 +3,13 @@ import { SubmitHandler, SubmitErrorHandler } from "react-hook-form";
 import { Button } from "@mui/material";
 
 import Form from "../../lib/components/Form";
-import AddressFieldArray from "./partials/AddressFieldArray";
 import visibilitySchema from "./personalInfoVisibilitySchema";
 import validationSchema, {
   PersonalInfoFieldValues,
 } from "./personalInfoValidationSchema";
 import Field from "../../lib/components/Field";
 import { defaultComponentMap } from "../../lib/components/fields/componentMap";
+import FieldArray from "../../lib/components/fieldArray/FieldArray";
 
 const PersonalInfoForm = () => {
   const onSubmit = useCallback<SubmitHandler<PersonalInfoFieldValues>>(
@@ -56,11 +56,12 @@ const PersonalInfoForm = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          flex: 1,
           maxWidth: "400px",
           width: "100%",
           gap: "1rem",
           "& .MuiFormControl-root": {
-            maxWidth: "400px",
+            // maxWidth: "400px",
             width: "100%",
           },
         },
@@ -81,7 +82,37 @@ const PersonalInfoForm = () => {
 
       <Field type="text" name="lastName" label="Last name" />
 
-      <AddressFieldArray name="addresses" />
+      <FieldArray
+        highlight
+        name="addresses"
+        render={useCallback(
+          ({ name, index }) => (
+            <>
+              <Field
+                type="text"
+                name={`${name}.${index}.address1`}
+                label="Address 1"
+              />
+              <Field
+                type="text"
+                name={`${name}.${index}.address2`}
+                label="Address 2"
+              />
+              <Field
+                type="text"
+                name={`${name}.${index}.address3`}
+                label="Address 3"
+              />
+              <Field
+                type="text"
+                name={`${name}.${index}.postcode`}
+                label="Postcode"
+              />
+            </>
+          ),
+          []
+        )}
+      />
 
       <Field
         type="checkbox"

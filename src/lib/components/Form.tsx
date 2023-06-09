@@ -13,7 +13,7 @@ import {
 } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ValidationSchemaProvider } from "../hooks/useValidationSchema";
-import { ComponentMap } from "./fields/componentMap";
+import type { ComponentMap } from "./fields/componentMap";
 
 export interface FormProps<
   TValidationSchema extends AnyObjectSchema,

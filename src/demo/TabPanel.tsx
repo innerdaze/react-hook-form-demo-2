@@ -23,4 +23,4 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-export default TabPanel;
+export default React.memo(TabPanel);
