@@ -1,6 +1,6 @@
 import React from "react";
-import { FieldValues } from "react-hook-form";
-import { FormComponentSchema } from "../../types/schema";
+import type { FieldValues } from "react-hook-form";
+import type { FormComponentSchema } from "../../types/schema";
 import SchemaFormComponent from "./SchemaFormComponent";
 
 export interface SchemaFormComponentsProps<TFieldValues extends FieldValues> {

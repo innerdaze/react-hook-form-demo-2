@@ -10,19 +10,16 @@ export interface TabPanelProps extends BoxProps {
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
-  return (
-    value === index && (
-      <Box
-        role="tabpanel"
-        hidden={value !== index}
-        id={`simple-tabpanel-${index}`}
-        aria-labelledby={`simple-tab-${index}`}
-        {...other}
-      >
-        {children}
-      </Box>
-    )
-  );
+  return value === index ? (
+    <Box
+      role="tabpanel"
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {children}
+    </Box>
+  ) : null;
 }
 
 export default React.memo(TabPanel);

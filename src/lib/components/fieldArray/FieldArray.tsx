@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import React from "react";
-import { ArrayPath, FieldArrayWithId, FieldValues } from "react-hook-form";
+import type { ArrayPath, FieldArrayWithId, FieldValues } from "react-hook-form";
 import useFieldArrayComponent from "../../hooks/useFieldArrayComponent";
 import FieldSet from "../FieldSet";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Highlight } from "prism-react-renderer";
+import { Highlight, themes } from "prism-react-renderer";
 import { Box } from "@mui/material";
 
 export interface SourceViewProps {
@@ -8,8 +8,8 @@ export interface SourceViewProps {
 
 const SourceView = ({ src }: SourceViewProps) => {
   return (
-    <Highlight code={src} language="tsx">
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+    <Highlight code={src} language="tsx" theme={themes.nightOwl}>
+      {({ style, tokens, getLineProps, getTokenProps }) => (
         <Box px={4} flex={1} display="flex" width="100%" overflow="hidden">
           <pre
             style={{
@@ -23,6 +23,10 @@ const SourceView = ({ src }: SourceViewProps) => {
               const indentLength =
                 String(tokens.length - 1).length - String(i + 1).length + 1;
 
+              const rowIndex = `${Array(indentLength).fill(" ").join("")}${
+                i + 1
+              } `;
+
               return (
                 <div key={i} {...getLineProps({ line })}>
                   <span
@@ -33,11 +37,18 @@ const SourceView = ({ src }: SourceViewProps) => {
                       marginRight: "0.675rem",
                     }}
                   >
-                    {`${Array(indentLength).fill(" ").join("")}${i + 1} `}
+                    {rowIndex}
                   </span>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token })} />
-                  ))}
+                  {line.map((token, key) => {
+                    const classIndex = token.types.indexOf("maybe-class-name");
+
+                    if (classIndex !== -1) {
+                      console.log(token);
+                      token.types[classIndex] = "class-name";
+                    }
+
+                    return <span key={key} {...getTokenProps({ token })} />;
+                  })}
                 </div>
               );
             })}
@@ -48,4 +59,4 @@ const SourceView = ({ src }: SourceViewProps) => {
   );
 };
 
-export default SourceView;
+export default React.memo(SourceView);

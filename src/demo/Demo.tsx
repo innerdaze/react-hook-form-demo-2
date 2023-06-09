@@ -1,11 +1,11 @@
 import React, { useCallback } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 
-import PersonalInfoForm from "../forms/PersonalInfo/PersonalInfoForm";
 import SchemaFormDemo from "./tabs/SchemaFormDemo";
 import FormSource from "./tabs/FormSource";
-import DemoTabPanel from "./DemoTabPanel";
+import DemoTabPanel from "./components/DemoTabPanel";
 import SchemaFormSource from "./tabs/SchemaFormSource";
+import FormDemo from "./tabs/FormDemo";
 
 const Demo = () => {
   const [value, setValue] = React.useState(0);
@@ -34,7 +34,7 @@ const Demo = () => {
       </Box>
       <Box flex={1} display="flex" flexDirection="column" overflow="hidden">
         <DemoTabPanel title="Form" index={0} value={value}>
-          <PersonalInfoForm />
+          <FormDemo />
         </DemoTabPanel>
         <DemoTabPanel
           title="Form Source"

@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { PersonalInfoFieldValues } from "./personalInfoValidationSchema";
+import type { PersonalInfoFieldValues } from "./personalInfoValidationSchema";
 
 const visibilitySchema = yup.object<PersonalInfoFieldValues>({
   additionalField: yup.string().when("showAdditionalField", {

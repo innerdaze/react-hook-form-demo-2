@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { SubmitErrorHandler } from "react-hook-form";
-import { defaultComponentMap } from "../../lib/components/fields/componentMap";
-import SchemaForm from "../../lib/components/SchemaForm";
+import { defaultComponentMap } from "../../../lib/components/fields/componentMap";
+import SchemaForm from "../../../lib/components/SchemaForm";
 import personalInfoFormSchema from "./personalInfoFormSchema";
 import { PersonalInfoFieldValues } from "./personalInfoValidationSchema";
 
@@ -28,7 +28,6 @@ const PersonalInfoSchemaForm = () => {
           width: "100%",
           gap: "1rem",
           "& .MuiFormControl-root": {
-            maxWidth: "400px",
             width: "100%",
           },
         },

@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { lastIndexOf } from "lodash";
 import React from "react";
 import TabPanel, { TabPanelProps } from "./TabPanel";
 
@@ -55,4 +54,4 @@ const DemoTabPanel = ({
   );
 };
 
-export default DemoTabPanel;
+export default React.memo(DemoTabPanel);

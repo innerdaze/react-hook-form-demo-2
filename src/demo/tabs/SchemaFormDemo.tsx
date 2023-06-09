@@ -8,8 +8,8 @@ import {
 } from "@mui/material";
 
 import ReactJson from "react-json-view";
-import personalInfoFormSchema from "../../forms/PersonalInfo/personalInfoFormSchema";
-import PersonalInfoSchemaForm from "../../forms/PersonalInfo/PersonalInfoSchemaForm";
+import personalInfoFormSchema from "../forms/PersonalInfo/personalInfoFormSchema";
+import PersonalInfoSchemaForm from "../forms/PersonalInfo/PersonalInfoSchemaForm";
 
 const ReactJsonViewer = ReactJson as React.FC<
   React.ComponentProps<typeof ReactJson>
@@ -45,4 +45,4 @@ const SchemaFormDemo = () => {
   );
 };
 
-export default SchemaFormDemo;
+export default React.memo(SchemaFormDemo);

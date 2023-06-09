@@ -2,14 +2,14 @@ import React, { useCallback } from "react";
 import { SubmitHandler, SubmitErrorHandler } from "react-hook-form";
 import { Button } from "@mui/material";
 
-import Form from "../../lib/components/Form";
+import Form from "../../../lib/components/Form";
 import visibilitySchema from "./personalInfoVisibilitySchema";
 import validationSchema, {
   PersonalInfoFieldValues,
 } from "./personalInfoValidationSchema";
-import Field from "../../lib/components/Field";
-import { defaultComponentMap } from "../../lib/components/fields/componentMap";
-import FieldArray from "../../lib/components/fieldArray/FieldArray";
+import Field from "../../../lib/components/Field";
+import { defaultComponentMap } from "../../../lib/components/fields/componentMap";
+import FieldArray from "../../../lib/components/fieldArray/FieldArray";
 
 const PersonalInfoForm = () => {
   const onSubmit = useCallback<SubmitHandler<PersonalInfoFieldValues>>(
@@ -61,7 +61,6 @@ const PersonalInfoForm = () => {
           width: "100%",
           gap: "1rem",
           "& .MuiFormControl-root": {
-            // maxWidth: "400px",
             width: "100%",
           },
         },

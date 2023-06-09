@@ -1,5 +1,5 @@
 import React from "react";
-import { FormSectionSchema } from "../../types/schema";
+import type { FormSectionSchema } from "../../types/schema";
 import SchemaFormSection from "./SchemaFormSection";
 
 export interface SchemaFormSectionsProps {
