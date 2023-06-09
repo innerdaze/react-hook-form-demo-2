@@ -44,7 +44,6 @@ const SourceView = ({ src }: SourceViewProps) => {
                     const classIndex = token.types.indexOf("maybe-class-name");
 
                     if (classIndex !== -1) {
-                      console.log(token);
                       token.types[classIndex] = "class-name";
                     }
 
