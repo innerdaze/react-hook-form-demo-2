@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Box, Tab, Tabs } from "@mui/material";
+import { Box, Tab, Tabs, Typography } from "@mui/material";
 
 import SchemaFormDemo from "./tabs/SchemaFormDemo";
 import FormSource from "./tabs/FormSource";
@@ -25,7 +25,12 @@ const Demo = () => {
       height="100%"
     >
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs value={value} onChange={handleChange}>
+        <Tabs
+          scrollButtons="auto"
+          variant="scrollable"
+          value={value}
+          onChange={handleChange}
+        >
           <Tab id="0" label="Form" />
           <Tab id="1" label="Form Source" />
           <Tab id="2" label="Schema Form" />

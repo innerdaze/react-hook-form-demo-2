@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import CopyrightFooter from "./CopyrightFooter";
 import TabPanel, { TabPanelProps } from "./TabPanel";
 
 export interface DemoTabPanelProps extends TabPanelProps {
@@ -22,7 +23,7 @@ const DemoTabPanel = ({
     <TabPanel
       value={value}
       index={index}
-      overflow={scrollable ? "hidden" : "auto"}
+      overflow="hidden"
       display="flex"
       flexDirection="column"
       flex={1}
@@ -34,9 +35,14 @@ const DemoTabPanel = ({
         flex={1}
         display="flex"
         flexDirection="column"
-        overflow={scrollable ? "auto" : "hidden"}
+        overflow="auto"
       >
-        <Typography variant="h2" mb={4} align="center">
+        <Typography
+          variant="h2"
+          mb={4}
+          align="center"
+          fontSize={["8vw", "8vw", "4.5rem"]}
+        >
           {title}
         </Typography>
         <Box
@@ -49,6 +55,7 @@ const DemoTabPanel = ({
         >
           {children}
         </Box>
+        <CopyrightFooter />
       </Box>
     </TabPanel>
   );

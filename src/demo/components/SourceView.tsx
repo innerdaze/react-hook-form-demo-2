@@ -10,13 +10,22 @@ const SourceView = ({ src }: SourceViewProps) => {
   return (
     <Highlight code={src} language="tsx" theme={themes.nightOwl}>
       {({ style, tokens, getLineProps, getTokenProps }) => (
-        <Box px={4} flex={1} display="flex" width="100%" overflow="hidden">
+        <Box
+          px={4}
+          flex={1}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          width="100%"
+          overflow="hidden"
+        >
           <pre
             style={{
               ...style,
               overflow: "auto",
               width: "100%",
               margin: 0,
+              maxWidth: "1280px",
             }}
           >
             {tokens.map((line, i) => {
