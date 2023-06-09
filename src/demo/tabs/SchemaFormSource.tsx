@@ -3,7 +3,7 @@ import PersonalInfoSchemaForm from "../forms/PersonalInfo/PersonalInfoSchemaForm
 import SourceView from "../components/SourceView";
 
 const SchemaFormSource = () => {
-  return <SourceView src={PersonalInfoSchemaForm.toString()} />;
+  return <SourceView src={PersonalInfoSchemaForm} />;
 };
 
 export default React.memo(SchemaFormSource);

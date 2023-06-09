@@ -40,6 +40,7 @@ const SourceView = ({ src }: SourceViewProps) => {
                     {rowIndex}
                   </span>
                   {line.map((token, key) => {
+                    // Fix issue with JSX rendering
                     const classIndex = token.types.indexOf("maybe-class-name");
 
                     if (classIndex !== -1) {
