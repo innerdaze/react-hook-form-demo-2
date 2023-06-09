@@ -25,16 +25,17 @@ const SchemaFormDemo = () => {
           </AccordionSummary>
           <AccordionDetails
             sx={{
-              backgroundColor: "rgb(39, 40, 34)",
+              backgroundColor: "rgb(30, 30, 30)",
               marginTop: "2rem",
               borderRadius: "4px",
+              mx: "2rem",
             }}
           >
             <ReactJsonViewer
               src={JSON.parse(JSON.stringify(personalInfoFormSchema))}
               theme="monokai"
               collapsed={1}
-              style={{ flex: 1 }}
+              style={{ flex: 1, backgroundColor: "rgb(30, 30, 30)" }}
             />
           </AccordionDetails>
         </Accordion>

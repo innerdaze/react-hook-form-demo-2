@@ -18,7 +18,12 @@ const Demo = () => {
   );
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="stretch">
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="stretch"
+      height="100%"
+    >
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange}>
           <Tab id="0" label="Form" />
@@ -27,17 +32,27 @@ const Demo = () => {
           <Tab id="3" label="Schema Form Source" />
         </Tabs>
       </Box>
-      <Box>
+      <Box flex={1} display="flex" flexDirection="column" overflow="hidden">
         <DemoTabPanel title="Form" index={0} value={value}>
           <PersonalInfoForm />
         </DemoTabPanel>
-        <DemoTabPanel title="Form Source" index={1} value={value}>
+        <DemoTabPanel
+          title="Form Source"
+          index={1}
+          value={value}
+          scrollable={false}
+        >
           <FormSource />
         </DemoTabPanel>
         <DemoTabPanel title="Schema Form" index={2} value={value}>
           <SchemaFormDemo />
         </DemoTabPanel>
-        <DemoTabPanel title="Schema Form Source" index={3} value={value}>
+        <DemoTabPanel
+          title="Schema Form Source"
+          index={3}
+          value={value}
+          scrollable={false}
+        >
           <SchemaFormSource />
         </DemoTabPanel>
       </Box>

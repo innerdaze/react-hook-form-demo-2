@@ -1,13 +1,9 @@
-import { Box } from "@mui/material";
 import React from "react";
 import PersonalInfoForm from "../../forms/PersonalInfo/PersonalInfoForm?raw";
+import SourceView from "../components/SourceView";
 
 const FormSource = () => {
-  return (
-    <Box component="pre" bgcolor="rgb(39, 40, 34)" borderRadius="4px" p={4}>
-      {PersonalInfoForm.toString()}
-    </Box>
-  );
+  return <SourceView src={PersonalInfoForm.toString()} />;
 };
 
 export default FormSource;

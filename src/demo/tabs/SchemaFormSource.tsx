@@ -1,13 +1,9 @@
-import { Box } from "@mui/material";
 import React from "react";
 import PersonalInfoSchemaForm from "../../forms/PersonalInfo/PersonalInfoSchemaForm?raw";
+import SourceView from "../components/SourceView";
 
 const SchemaFormSource = () => {
-  return (
-    <Box component="pre" bgcolor="rgb(39, 40, 34)" borderRadius="4px" p={4}>
-      {PersonalInfoSchemaForm.toString()}
-    </Box>
-  );
+  return <SourceView src={PersonalInfoSchemaForm.toString()} />;
 };
 
 export default SchemaFormSource;

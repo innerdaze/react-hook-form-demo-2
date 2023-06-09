@@ -41,11 +41,13 @@ export default function App() {
             // align: "center",
             // alignItems: "stretch",
             minWidth: "320px",
-            minHeight: "100vh",
+            maxHeight: "100vh",
+            overflow: "hidden",
+            height: "100vh",
           },
           "#root": {
+            height: "100%",
             width: "100%",
-            padding: "2rem",
           },
           ul: { padding: 0, margin: 0 },
         }}

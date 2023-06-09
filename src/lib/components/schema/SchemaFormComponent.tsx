@@ -19,6 +19,7 @@ const SchemaFormComponent = <TFieldValues extends FieldValues = FieldValues>(
           ({ name, index }) =>
             props.components.map((component) => (
               <SchemaFormComponent<TFieldValues>
+                key={component.name}
                 {...component}
                 name={`${name}.${index}.${component.name}` as never}
               />
