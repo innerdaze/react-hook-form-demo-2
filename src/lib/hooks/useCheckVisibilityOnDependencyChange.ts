@@ -3,7 +3,7 @@ import type { Path, FieldValues } from "react-hook-form";
 import { useFormContext, useWatch } from "react-hook-form";
 import useVisibilitySchema from "./useVisibilitySchema";
 import type { AnySchema, ObjectSchema } from "yup";
-import { reach } from "yup";
+import safeReach from "../util/safeReach";
 
 export interface UseCheckVisibilityOnDependencyChangeProps<
   T extends FieldValues
@@ -11,14 +11,21 @@ export interface UseCheckVisibilityOnDependencyChangeProps<
   name: Path<T>;
 }
 
+/**
+ * useCheckVisibilityOnDependencyChange
+ *
+ * Trigger re-render when visibility check dependencies change their values.
+ * Sets visible boolean based on visibility check result.
+ */
 const useCheckVisibilityOnDependencyChange = <T extends FieldValues>({
   name,
 }: UseCheckVisibilityOnDependencyChangeProps<T>) => {
   const { control, getValues } = useFormContext<T>();
   const [visible, setVisible] = useState(true);
-  const visibilitySchema = useVisibilitySchema() as ObjectSchema<T, T>;
+  const visibilitySchema = useVisibilitySchema();
 
-  const innerSchema = reach(visibilitySchema, name) as AnySchema;
+  const innerSchema =
+    visibilitySchema && (safeReach(visibilitySchema, name) as AnySchema);
 
   const deps = innerSchema?.deps as Path<T>[];
   const watchName = deps?.length === 1 ? deps[0] : deps;

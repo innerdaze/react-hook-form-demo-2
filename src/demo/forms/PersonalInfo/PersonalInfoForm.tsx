@@ -3,10 +3,10 @@ import { SubmitHandler, SubmitErrorHandler } from "react-hook-form";
 import { Button } from "@mui/material";
 
 import Form from "../../../lib/components/Form";
-import visibilitySchema from "./personalInfoVisibilitySchema";
+import visibilitySchema from "./schemas/personalInfoVisibilitySchema";
 import validationSchema, {
   PersonalInfoFieldValues,
-} from "./personalInfoValidationSchema";
+} from "./schemas/personalInfoValidationSchema";
 import Field from "../../../lib/components/Field";
 import { defaultComponentMap } from "../../../lib/components/fields/componentMap";
 import FieldArray from "../../../lib/components/fieldArray/FieldArray";

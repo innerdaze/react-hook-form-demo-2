@@ -1,4 +1,4 @@
-import type { ArrayPath, DefaultValues, FieldValues } from "react-hook-form";
+import type { ArrayPath, FieldValues } from "react-hook-form";
 import type { AnyObjectSchema, InferType } from "yup";
 import type { CheckboxProps } from "../components/fields/Checkbox";
 import type { SelectFieldProps } from "../components/fields/SelectField";
@@ -52,7 +52,6 @@ export interface FormSchema<
   > {
   __version: string;
   name: string;
-  // defaultValues: DefaultValues<TFieldValues>;
   sections: FormSectionSchema[];
   validationSchema: TValidationSchema;
   visibilitySchema?: TVisibilitySchema;

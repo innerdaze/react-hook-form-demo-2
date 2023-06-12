@@ -19,7 +19,7 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          minWidth: 200,
+          // minWidth: 200,
           textAlign: "left",
         },
       },
@@ -40,7 +40,7 @@ export default function App() {
             flexDirection: "column",
             // align: "center",
             // alignItems: "stretch",
-            minWidth: "320px",
+            // minWidth: "320px",
             maxHeight: "100vh",
             overflow: "hidden",
             height: "100vh",

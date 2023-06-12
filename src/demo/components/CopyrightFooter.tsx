@@ -6,8 +6,7 @@ const CopyrightFooter = () => {
     <Typography
       align="center"
       color="rgba(255,255,255,0.6)"
-      mt={4}
-      pt={4}
+      py={4}
       borderTop="1px solid rgba(255,255,255,0.2)"
     >
       Acre Software Ltd &copy; 2023
