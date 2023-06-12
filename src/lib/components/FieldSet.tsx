@@ -11,14 +11,19 @@ const FieldSetBase = (props: FieldSetProps) => (
 
 const FieldSet = styled(FieldSetBase, {
   shouldForwardProp: (prop) => prop !== "highlight",
-})(({ highlight }) => {
+})(({ theme, highlight }) => {
   const fieldsetPadding = highlight ? "1rem" : 0;
   const bgColor = highlight ? "rgba(0,0,0, 0.2)" : undefined;
 
   return {
     backgroundColor: bgColor,
     padding: fieldsetPadding,
-    borderRadius: fieldsetPadding,
+    [theme.breakpoints.down("sm")]: {
+      borderRadius: 0,
+    },
+    [theme.breakpoints.up("sm")]: {
+      borderRadius: fieldsetPadding,
+    },
     border: 0,
     display: "flex",
     flexDirection: "column",

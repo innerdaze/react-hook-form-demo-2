@@ -2,8 +2,8 @@ import React, { useCallback } from "react";
 import { SubmitErrorHandler } from "react-hook-form";
 import { defaultComponentMap } from "../../../lib/components/fields/componentMap";
 import SchemaForm from "../../../lib/components/SchemaForm";
-import personalInfoFormSchema from "./personalInfoFormSchema";
-import { PersonalInfoFieldValues } from "./personalInfoValidationSchema";
+import personalInfoFormSchema from "./schemas/personalInfoFormSchema";
+import { PersonalInfoFieldValues } from "./schemas/personalInfoValidationSchema";
 
 const PersonalInfoSchemaForm = () => {
   const handleSubmit = useCallback(() => {}, []);
@@ -24,6 +24,7 @@ const PersonalInfoSchemaForm = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          flex: 1,
           maxWidth: "400px",
           width: "100%",
           gap: "1rem",

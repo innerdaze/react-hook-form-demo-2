@@ -29,19 +29,14 @@ const DemoTabPanel = ({
       flex={1}
       {...props}
     >
-      <Box
-        pt={6}
-        pb={4}
-        flex={1}
-        display="flex"
-        flexDirection="column"
-        overflow="auto"
-      >
+      <Box flex={1} display="flex" flexDirection="column" overflow="auto">
         <Typography
           variant="h2"
+          mt={6}
           mb={4}
           align="center"
           fontSize={["8vw", "8vw", "4.5rem"]}
+          display={{ xs: "none", sm: "block" }}
         >
           {title}
         </Typography>
@@ -55,8 +50,8 @@ const DemoTabPanel = ({
         >
           {children}
         </Box>
-        <CopyrightFooter />
       </Box>
+      <CopyrightFooter />
     </TabPanel>
   );
 };

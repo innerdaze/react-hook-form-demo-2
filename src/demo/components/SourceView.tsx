@@ -11,7 +11,8 @@ const SourceView = ({ src }: SourceViewProps) => {
     <Highlight code={src} language="tsx" theme={themes.nightOwl}>
       {({ style, tokens, getLineProps, getTokenProps }) => (
         <Box
-          px={4}
+          px={[0, 4]}
+          pb={[0, 4]}
           flex={1}
           display="flex"
           flexDirection="column"

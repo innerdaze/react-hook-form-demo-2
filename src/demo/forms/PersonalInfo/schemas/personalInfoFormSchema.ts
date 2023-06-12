@@ -1,4 +1,4 @@
-import type { FormSchema } from "../../../lib/types/schema";
+import type { FormSchema } from "../../../../lib/types/schema";
 import personalInfoValidationSchema from "./personalInfoValidationSchema";
 import personalInfoVisibilitySchema from "./personalInfoVisibilitySchema";
 
