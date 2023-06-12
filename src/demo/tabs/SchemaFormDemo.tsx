@@ -3,7 +3,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Box,
   Button,
 } from "@mui/material";
 
@@ -20,7 +19,14 @@ const SchemaFormDemo = () => {
   return (
     <>
       <DemoFormContainer>
-        <Accordion sx={{ background: "transparent", boxShadow: "none", mb: 4 }}>
+        <Accordion
+          sx={{
+            background: "transparent",
+            boxShadow: "none",
+            mb: 4,
+            width: "inherit",
+          }}
+        >
           <AccordionSummary component={Button} sx={{ margin: "0 auto" }}>
             Show Schema
           </AccordionSummary>
@@ -36,7 +42,11 @@ const SchemaFormDemo = () => {
               src={JSON.parse(JSON.stringify(personalInfoFormSchema))}
               theme="monokai"
               collapsed={1}
-              style={{ flex: 1, backgroundColor: "rgb(30, 30, 30)" }}
+              style={{
+                flex: 1,
+                backgroundColor: "rgb(30, 30, 30)",
+                overflow: "auto",
+              }}
             />
           </AccordionDetails>
         </Accordion>
