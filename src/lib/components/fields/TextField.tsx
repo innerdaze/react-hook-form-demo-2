@@ -33,7 +33,7 @@ function TextField<
 >({ name, shouldUnregister = true, ...props }: TextFieldProps<T>) {
   const { control } = useFormContext<T>();
   const { field } = useController<T>({ name, control, shouldUnregister });
-  const fieldState = useFormState<T>({
+  const { errors } = useFormState<T>({
     control,
     name,
     exact: true,
@@ -41,7 +41,7 @@ function TextField<
 
   const fieldSchema = useFieldValidationSchema<T, S>(name);
 
-  const error = get(fieldState.errors, name);
+  const fieldErrors = get(errors, name);
 
   return (
     <React.Fragment>
@@ -54,7 +54,7 @@ function TextField<
         name={field.name}
         inputRef={field.ref}
         required={!fieldSchema?.spec?.optional}
-        error={Boolean(error)}
+        error={Boolean(fieldErrors)}
         /* @ts-expect-error */
         FormHelperTextProps={{ component: "div" }}
         helperText={<ErrorMessage render={RenderErrorMessage} name={name} />}

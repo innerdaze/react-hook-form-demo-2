@@ -1,5 +1,5 @@
 import { FieldValues } from "react-hook-form";
-import useRevalidateOnChange, {
+import useRevalidateOnDependencyChange, {
   UseRevalidateOnDependencyChangeProps,
 } from "../../hooks/useRevalidateOnDependencyChange";
 
@@ -10,7 +10,7 @@ const RevalidateOnDependencyChange = <T extends FieldValues>({
   name,
   watch,
 }: RevalidateOnChangeProps<T>) => {
-  useRevalidateOnChange<T>({
+  useRevalidateOnDependencyChange<T>({
     name,
     watch,
   });

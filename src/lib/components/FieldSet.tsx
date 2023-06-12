@@ -20,11 +20,10 @@ const FieldSet = styled(FieldSetBase, {
     padding: fieldsetPadding,
     borderRadius: fieldsetPadding,
     border: 0,
-    // margin: `0 0 0 -${fieldsetPadding}`,
     display: "flex",
     flexDirection: "column",
     gap: "1rem",
-    width: fieldsetPadding ? "calc(100% + 2rem)" : "auto",
+    width: fieldsetPadding ? "calc(100% + 2rem)" : "100%",
   };
 });
 

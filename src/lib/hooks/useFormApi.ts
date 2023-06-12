@@ -1,8 +1,5 @@
 import React, { createContext } from "react";
-import {
-  ComponentMap,
-  defaultComponentMap,
-} from "../components/fields/componentMap";
+import type { ComponentMap } from "../components/fields/componentMap";
 
 export interface FormApiContextType {
   errorMode?: "first" | "all";
@@ -11,7 +8,7 @@ export interface FormApiContextType {
 
 export const FormApiContext = createContext<FormApiContextType>({
   errorMode: "first",
-  componentMap: defaultComponentMap,
+  componentMap: {} as ComponentMap,
 });
 
 export const FormApiProvider = FormApiContext.Provider;

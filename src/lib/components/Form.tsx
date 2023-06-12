@@ -3,7 +3,6 @@ import { Box, BoxProps } from "@mui/material";
 import { FormApiProvider } from "../hooks/useFormApi";
 import { VisibilitySchemaProvider } from "../hooks/useVisibilitySchema";
 import type { AnyObjectSchema, InferType } from "yup";
-import type { ComponentMap } from "./fields/componentMap";
 import {
   FieldValues,
   FormProvider,
@@ -14,6 +13,7 @@ import {
 } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ValidationSchemaProvider } from "../hooks/useValidationSchema";
+import type { ComponentMap } from "./fields/componentMap";
 
 export interface FormProps<
   TValidationSchema extends AnyObjectSchema,

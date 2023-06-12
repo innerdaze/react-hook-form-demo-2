@@ -7,7 +7,7 @@ export interface Address {
   postcode: string;
 }
 
-const addressSchema = yup.object({
+const addressSchema: yup.ObjectSchema<Address> = yup.object({
   address1: yup.string().required(),
   address2: yup.string(),
   address3: yup.string(),

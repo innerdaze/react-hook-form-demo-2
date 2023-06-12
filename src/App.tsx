@@ -1,15 +1,13 @@
 import React from "react";
-import "./App.css";
 import * as yup from "yup";
 import {
   createTheme,
   CssBaseline,
   GlobalStyles,
   ThemeProvider,
-  Typography,
 } from "@mui/material";
 
-import PersonalInfoForm from "./forms/PersonalInfo/PersonalInfoForm";
+import Demo from "./demo/Demo";
 
 yup.setLocale({
   mixed: { required: "This field is required" },
@@ -43,20 +41,18 @@ export default function App() {
             // align: "center",
             // alignItems: "stretch",
             minWidth: "320px",
-            minHeight: "100vh",
+            maxHeight: "100vh",
+            overflow: "hidden",
+            height: "100vh",
           },
           "#root": {
-            maxWidth: "1280px",
-            margin: "0 auto",
-            padding: "2rem",
+            height: "100%",
+            width: "100%",
           },
           ul: { padding: 0, margin: 0 },
         }}
       />
-      <Typography variant="h2" mb={8} align="center">
-        React Hook Form Demo
-      </Typography>
-      <PersonalInfoForm />
+      <Demo />
     </ThemeProvider>
   );
 }
