@@ -1,6 +1,4 @@
-# Vite + React
-
-This is a [Vite](https://vitejs.dev) project together with React.
+# Data Driven Forms Demo
 
 [![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/innerdaze/react-hook-form-demo-2/main)
 
