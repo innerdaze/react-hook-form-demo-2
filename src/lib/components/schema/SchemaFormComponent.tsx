@@ -1,15 +1,22 @@
-import React, { useCallback } from "react";
-import type { FieldValues } from "react-hook-form";
+import React, { Key, useCallback } from "react";
+import type { ArrayPath, FieldValues, Path } from "react-hook-form";
 
 import type { FormComponentSchema } from "../../types/schema";
 import Field from "../Field";
 import FieldArray from "../fieldArray/FieldArray";
 
-export type SchemaFormComponentProps<TFieldValues extends FieldValues> =
-  FormComponentSchema<TFieldValues>;
+export type SchemaFormComponentProps<
+  TFieldValues extends FieldValues,
+  TName extends Path<TFieldValues> | ArrayPath<TFieldValues>
+> = FormComponentSchema<TFieldValues, TName>;
 
-const SchemaFormComponent = <TFieldValues extends FieldValues = FieldValues>(
-  props: SchemaFormComponentProps<TFieldValues>
+const SchemaFormComponent = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends
+    | Path<TFieldValues>
+    | ArrayPath<TFieldValues> = Path<TFieldValues>
+>(
+  props: SchemaFormComponentProps<TFieldValues, TName>
 ) => {
   if (props.type === "array") {
     return (
@@ -17,13 +24,19 @@ const SchemaFormComponent = <TFieldValues extends FieldValues = FieldValues>(
         {...props}
         render={useCallback(
           ({ name, index }) =>
-            props.parts.map((component) => (
-              <SchemaFormComponent<TFieldValues>
-                key={component.name}
-                {...component}
-                name={`${name}.${index}.${component.name}` as never}
-              />
-            )),
+            props.parts.map(
+              ({ name: partName, components: _components, ...component }) => (
+                <SchemaFormComponent<TFieldValues, ArrayPath<TFieldValues>>
+                  key={partName as Key}
+                  {...component}
+                  name={
+                    `${name}.${index}.${String(
+                      partName
+                    )}` as ArrayPath<TFieldValues>
+                  }
+                />
+              )
+            ),
           []
         )}
       />

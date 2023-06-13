@@ -42,17 +42,16 @@ export type FormComponentSchema<
 
 export type FieldArrayPathName<
   TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayValue extends string = FieldArrayPathValue<
-    TFieldValues,
-    ArrayPath<TFieldValues>
-  >,
+  TFieldArrayValue = FieldArrayPathValue<TFieldValues, ArrayPath<TFieldValues>>,
   TArrayType = ArrayType<TFieldArrayValue>
-> = TArrayType extends TFieldArrayValue ? TArrayType : keyof TArrayType;
+> = TArrayType extends TFieldArrayValue
+  ? TArrayType
+  : Exclude<keyof TArrayType, "number" | "symbol">;
 
 export interface FieldArraySchema<
   TFieldValues extends FieldValues = FieldValues
 > {
-  name: ArrayPath<TFieldValues>;
+  // name: ArrayPath<TFieldValues>;
   highlight?: boolean;
   parts: FormComponentSchema<TFieldValues, FieldArrayPathName<TFieldValues>>[];
 }
