@@ -3,10 +3,10 @@ import { FormSchema } from "../types/schema";
 
 export default function useParseSchema(schema: FormSchema) {
   return useMemo(() => {
-    const { sections, ...formProps } = schema;
+    const { blocks, ...formProps } = schema;
 
     return {
-      sections,
+      blocks,
       formProps,
     };
   }, [schema]);

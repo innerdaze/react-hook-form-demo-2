@@ -4,8 +4,8 @@ import { AnyObjectSchema, InferType } from "yup";
 import Form, { FormProps } from "./Form";
 import useParseSchema from "../hooks/useParseSchema";
 import { FormSchema } from "../types/schema";
-import SchemaFormSections from "./schema/SchemaFormSections";
 import { Button } from "@mui/material";
+import SchemaFormComponents from "./schema/SchemaFormComponents";
 
 export interface SchemaFormProps<
   TValidationSchema extends AnyObjectSchema,
@@ -29,11 +29,11 @@ function SchemaForm<
   schema,
   ...props
 }: SchemaFormProps<TValidationSchema, TVisibilitySchema, TFieldValues>) {
-  const { formProps, sections } = useParseSchema(schema);
+  const { formProps, blocks } = useParseSchema(schema);
 
   return (
     <Form {...formProps} {...props}>
-      <SchemaFormSections sections={sections} />
+      <SchemaFormComponents components={blocks} />
       <Button size="large" type="submit">
         Submit
       </Button>

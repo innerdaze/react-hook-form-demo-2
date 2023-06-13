@@ -1,10 +1,15 @@
-import type { ArrayPath, FieldValues } from "react-hook-form";
+import type {
+  ArrayPath,
+  FieldArrayPathValue,
+  FieldValues,
+  Path,
+} from "react-hook-form";
 import type { AnyObjectSchema, InferType } from "yup";
 import type { CheckboxProps } from "../components/fields/Checkbox";
 import type { SelectFieldProps } from "../components/fields/SelectField";
 import type { TextFieldProps } from "../components/fields/TextField";
 import type { FormProps } from "../components/Form";
-import type { FieldTypes } from "./types";
+import type { ArrayType, FieldTypes } from "./types";
 
 export type ComponentSchemaPropsMap<
   TFieldValues extends FieldValues = FieldValues
@@ -23,23 +28,33 @@ type FormComponentSchemaBase<
 } & ComponentSchemaPropsMap<TFieldValues>[TFieldType];
 
 export type FormComponentSchema<
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends
+    | Path<TFieldValues>
+    | ArrayPath<TFieldValues>
+    | FieldArrayPathName<TFieldValues> = Path<TFieldValues>
 > = {
-  [T in FieldTypes]: FormComponentSchemaBase<T, TFieldValues>;
-}[FieldTypes];
+  [T in FieldTypes]: Omit<FormComponentSchemaBase<T, TFieldValues>, "name">;
+}[FieldTypes] & {
+  name: TName;
+  components?: FormComponentSchema<TFieldValues, TName>[];
+};
 
-export interface FormSectionSchema<
-  TFieldValues extends FieldValues = FieldValues
-> {
-  components: FormComponentSchema<TFieldValues>[];
-}
+export type FieldArrayPathName<
+  TFieldValues extends FieldValues = FieldValues,
+  TFieldArrayValue extends string = FieldArrayPathValue<
+    TFieldValues,
+    ArrayPath<TFieldValues>
+  >,
+  TArrayType = ArrayType<TFieldArrayValue>
+> = TArrayType extends TFieldArrayValue ? TArrayType : keyof TArrayType;
 
 export interface FieldArraySchema<
   TFieldValues extends FieldValues = FieldValues
 > {
   name: ArrayPath<TFieldValues>;
   highlight?: boolean;
-  components: FormComponentSchema<TFieldValues>[];
+  parts: FormComponentSchema<TFieldValues, FieldArrayPathName<TFieldValues>>[];
 }
 
 export interface FormSchema<
@@ -52,7 +67,7 @@ export interface FormSchema<
   > {
   __version: string;
   name: string;
-  sections: FormSectionSchema[];
+  blocks: FormComponentSchema<TFieldValues>[];
   validationSchema: TValidationSchema;
   visibilitySchema?: TVisibilitySchema;
 }

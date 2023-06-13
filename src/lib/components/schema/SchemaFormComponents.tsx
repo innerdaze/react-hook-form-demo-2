@@ -12,9 +12,15 @@ const SchemaFormComponents = <TFieldValues extends FieldValues = FieldValues>({
 }: SchemaFormComponentsProps<TFieldValues>) => {
   return (
     <>
-      {components.map((component, idx) => (
-        <SchemaFormComponent key={idx} {...component} />
-      ))}
+      {components.map((component, idx) => {
+        if (component.components) {
+          return (
+            <SchemaFormComponents key={idx} components={component.components} />
+          );
+        }
+
+        return <SchemaFormComponent key={idx} {...component} />;
+      })}
     </>
   );
 };

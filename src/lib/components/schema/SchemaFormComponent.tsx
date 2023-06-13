@@ -17,7 +17,7 @@ const SchemaFormComponent = <TFieldValues extends FieldValues = FieldValues>(
         {...props}
         render={useCallback(
           ({ name, index }) =>
-            props.components.map((component) => (
+            props.parts.map((component) => (
               <SchemaFormComponent<TFieldValues>
                 key={component.name}
                 {...component}
@@ -29,7 +29,7 @@ const SchemaFormComponent = <TFieldValues extends FieldValues = FieldValues>(
       />
     );
   }
-  
+
   // TODO: fix
   // @ts-ignore
   return <Field {...props} />;
