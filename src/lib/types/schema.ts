@@ -51,7 +51,6 @@ export type FieldArrayPathName<
 export interface FieldArraySchema<
   TFieldValues extends FieldValues = FieldValues
 > {
-  // name: ArrayPath<TFieldValues>;
   highlight?: boolean;
   parts: FormComponentSchema<TFieldValues, FieldArrayPathName<TFieldValues>>[];
 }
